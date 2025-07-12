@@ -1,0 +1,791 @@
+---
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Market Trends | FD Construction & Maintenance</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			
+			body {
+				font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+				line-height: 1.6;
+				color: #333;
+				background: #fff;
+			}
+			
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 20px;
+			}
+			
+			/* Header */
+			header {
+				background: #fff;
+				box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+				position: fixed;
+				width: 100%;
+				top: 0;
+				z-index: 1000;
+			}
+			
+			.header-content {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 1rem 0;
+			}
+			
+			.logo-placeholder {
+				width: 150px;
+				height: 50px;
+				background: #f0f0f0;
+				border: 2px dashed #ccc;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: #666;
+				font-size: 0.9rem;
+			}
+			
+			nav ul {
+				display: flex;
+				list-style: none;
+				gap: 2rem;
+			}
+			
+			nav a {
+				text-decoration: none;
+				color: #333;
+				font-weight: 500;
+				transition: color 0.3s ease;
+			}
+			
+			nav a:hover {
+				color: #666;
+			}
+			
+			nav a.active {
+				color: #666;
+				font-weight: bold;
+			}
+			
+			.contact-btn {
+				background: #333;
+				color: white;
+				padding: 0.8rem 1.5rem;
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+				font-weight: bold;
+				transition: background 0.3s ease;
+			}
+			
+			.contact-btn:hover {
+				background: #555;
+			}
+			
+			/* Page Header */
+			.page-header {
+				background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+				padding: 120px 0 80px;
+				text-align: center;
+			}
+			
+			.page-header h1 {
+				font-size: 3rem;
+				margin-bottom: 1rem;
+				color: #333;
+			}
+			
+			.page-header p {
+				font-size: 1.3rem;
+				color: #666;
+				max-width: 600px;
+				margin: 0 auto;
+			}
+			
+			/* Content Section */
+			.content-section {
+				padding: 80px 0;
+			}
+			
+			.content-section:nth-child(even) {
+				background: #f8f8f8;
+			}
+			
+			/* Market Data Section */
+			.market-data-section {
+				background: #fff;
+				padding: 80px 0;
+			}
+			
+			.market-data-container {
+				max-width: 1000px;
+				margin: 0 auto;
+				padding: 0 20px;
+			}
+			
+			.tradingview-intro {
+				text-align: center;
+				margin-bottom: 3rem;
+			}
+			
+			.tradingview-intro h2 {
+				font-size: 2.5rem;
+				margin-bottom: 1rem;
+				color: #333;
+			}
+			
+			.tradingview-intro p {
+				font-size: 1.2rem;
+				color: #666;
+			}
+			
+			.widget-section {
+				margin-bottom: 3rem;
+			}
+			
+			.widget-container {
+				background: #fff;
+				border-radius: 10px;
+				box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+				overflow: hidden;
+				margin-top: 1rem;
+			}
+			
+			.widget-container iframe {
+				border-radius: 10px;
+			}
+			
+			.market-insights {
+				margin-top: 3rem;
+			}
+			
+			.insights-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 2rem;
+				margin-top: 2rem;
+			}
+			
+			.insight-card {
+				background: #fff;
+				padding: 2rem;
+				border-radius: 10px;
+				box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+				transition: transform 0.3s ease;
+			}
+			
+			.insight-card:hover {
+				transform: translateY(-5px);
+			}
+			
+			.insight-card h4 {
+				font-size: 1.2rem;
+				margin-bottom: 1rem;
+				color: #333;
+			}
+			
+			.insight-card p {
+				color: #666;
+				line-height: 1.6;
+			}
+			
+			.emoji-title {
+				font-size: 2rem;
+				margin-bottom: 1rem;
+				color: #333;
+			}
+			
+			.section-title {
+				font-size: 1.5rem;
+				margin: 2rem 0 1rem 0;
+				color: #333;
+			}
+			
+			.data-table {
+				width: 100%;
+				border-collapse: collapse;
+				margin: 1.5rem 0;
+				background: white;
+				border-radius: 8px;
+				overflow: hidden;
+				box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+			}
+			
+			.data-table th,
+			.data-table td {
+				padding: 1rem;
+				text-align: left;
+				border-bottom: 1px solid #eee;
+			}
+			
+			.data-table th {
+				background: #333;
+				color: white;
+				font-weight: bold;
+			}
+			
+			.data-table tr:last-child td {
+				border-bottom: none;
+			}
+			
+			.data-table tr:hover {
+				background: #f9f9f9;
+			}
+			
+			.widget-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 2rem;
+				margin: 2rem 0;
+			}
+			
+			.widget-card {
+				background: white;
+				padding: 2rem;
+				border-radius: 10px;
+				box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+			}
+			
+			.widget-card h3 {
+				font-size: 1.3rem;
+				margin-bottom: 1rem;
+				color: #333;
+			}
+			
+			.widget-card p {
+				color: #666;
+				line-height: 1.6;
+			}
+			
+			.code-block {
+				background: #2d2d2d;
+				color: #f8f8f8;
+				padding: 1.5rem;
+				border-radius: 8px;
+				overflow-x: auto;
+				margin: 1rem 0;
+				font-family: 'Courier New', monospace;
+				font-size: 0.9rem;
+			}
+			
+			.pros-cons {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 2rem;
+				margin: 2rem 0;
+			}
+			
+			.pros-cons-card {
+				background: white;
+				padding: 2rem;
+				border-radius: 10px;
+				box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+			}
+			
+			.pros-cons-card h3 {
+				font-size: 1.3rem;
+				margin-bottom: 1rem;
+				color: #333;
+			}
+			
+			.pros-cons-card ul {
+				list-style: none;
+				padding: 0;
+			}
+			
+			.pros-cons-card li {
+				margin-bottom: 0.5rem;
+				padding-left: 1.5rem;
+				position: relative;
+				color: #666;
+			}
+			
+			.pros-cons-card.pros li:before {
+				content: "✅";
+				position: absolute;
+				left: 0;
+			}
+			
+			.pros-cons-card.cons li:before {
+				content: "❗";
+				position: absolute;
+				left: 0;
+			}
+			
+			.tip-section {
+				background: #e8f4f8;
+				padding: 2rem;
+				border-radius: 10px;
+				margin: 2rem 0;
+			}
+			
+			.tip-section h3 {
+				font-size: 1.3rem;
+				margin-bottom: 1rem;
+				color: #333;
+			}
+			
+			.tip-section p {
+				color: #666;
+				line-height: 1.6;
+				margin-bottom: 1rem;
+			}
+			
+			.tip-section ul {
+				list-style: none;
+				padding: 0;
+			}
+			
+			.tip-section li {
+				margin-bottom: 0.5rem;
+				padding-left: 1.5rem;
+				position: relative;
+				color: #666;
+			}
+			
+			.tip-section li:before {
+				content: "📈";
+				position: absolute;
+				left: 0;
+			}
+			
+			.widget-demo {
+				background: #f0f0f0;
+				border: 2px dashed #ccc;
+				padding: 2rem;
+				text-align: center;
+				border-radius: 10px;
+				margin: 2rem 0;
+				color: #666;
+			}
+			
+			/* Contact Section */
+			.contact {
+				background: #333;
+				color: white;
+				padding: 80px 0;
+			}
+			
+			.contact-content {
+				text-align: center;
+			}
+			
+			.contact h2 {
+				font-size: 2.5rem;
+				margin-bottom: 1rem;
+			}
+			
+			.contact p {
+				font-size: 1.2rem;
+				margin-bottom: 2rem;
+				opacity: 0.9;
+			}
+			
+			.contact-info {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 2rem;
+				margin-top: 3rem;
+			}
+			
+			.contact-item {
+				text-align: center;
+			}
+			
+			.contact-item h3 {
+				font-size: 1.3rem;
+				margin-bottom: 0.5rem;
+			}
+			
+			.contact-item p {
+				opacity: 0.8;
+			}
+			
+			/* Footer */
+			footer {
+				background: #222;
+				color: white;
+				padding: 2rem 0;
+				text-align: center;
+			}
+			
+			/* Dark Mode */
+			@media (prefers-color-scheme: dark) {
+				body {
+					background: #1a1a1a;
+					color: #e0e0e0;
+				}
+				
+				header {
+					background: #2d2d2d;
+					box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+				}
+				
+				.logo-placeholder {
+					background: #3a3a3a;
+					border-color: #555;
+					color: #ccc;
+				}
+				
+				nav a {
+					color: #e0e0e0;
+				}
+				
+				nav a:hover {
+					color: #ccc;
+				}
+				
+				nav a.active {
+					color: #ccc;
+					font-weight: bold;
+				}
+				
+				.contact-btn {
+					background: #4a4a4a;
+					color: #e0e0e0;
+				}
+				
+				.contact-btn:hover {
+					background: #5a5a5a;
+				}
+				
+				.page-header {
+					background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+				}
+				
+				.page-header h1 {
+					color: #e0e0e0;
+				}
+				
+				.page-header p {
+					color: #ccc;
+				}
+				
+				.market-data-section {
+					background: #1a1a1a;
+				}
+				
+				.widget-container {
+					background: #2d2d2d;
+					box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+				}
+				
+				.insight-card {
+					background: #2d2d2d;
+					box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+				}
+				
+				.insight-card h4 {
+					color: #e0e0e0;
+				}
+				
+				.insight-card p {
+					color: #ccc;
+				}
+				
+				.emoji-title {
+					color: #e0e0e0;
+				}
+				
+				.section-title {
+					color: #e0e0e0;
+				}
+				
+				.data-table {
+					background: #3a3a3a;
+					box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+				}
+				
+				.data-table th {
+					background: #1a1a1a;
+					color: #e0e0e0;
+				}
+				
+				.data-table td {
+					color: #ccc;
+					border-bottom-color: #555;
+				}
+				
+				.data-table tr:hover {
+					background: #4a4a4a;
+				}
+				
+				.widget-card {
+					background: #3a3a3a;
+					box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+				}
+				
+				.widget-card h3 {
+					color: #e0e0e0;
+				}
+				
+				.widget-card p {
+					color: #ccc;
+				}
+				
+				.code-block {
+					background: #0d0d0d;
+					color: #e0e0e0;
+				}
+				
+				.pros-cons-card {
+					background: #3a3a3a;
+					box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+				}
+				
+				.pros-cons-card h3 {
+					color: #e0e0e0;
+				}
+				
+				.pros-cons-card li {
+					color: #ccc;
+				}
+				
+				.tip-section {
+					background: #2d3a3a;
+				}
+				
+				.tip-section h3 {
+					color: #e0e0e0;
+				}
+				
+				.tip-section p {
+					color: #ccc;
+				}
+				
+				.tip-section li {
+					color: #ccc;
+				}
+				
+				.widget-demo {
+					background: #3a3a3a;
+					border-color: #555;
+					color: #ccc;
+				}
+				
+				.contact {
+					background: #1a1a1a;
+				}
+				
+				.contact h2 {
+					color: #e0e0e0;
+				}
+				
+				.contact p {
+					color: #ccc;
+				}
+				
+				.contact-item h3 {
+					color: #e0e0e0;
+				}
+				
+				.contact-item p {
+					color: #ccc;
+				}
+				
+				footer {
+					background: #0d0d0d;
+					color: #ccc;
+				}
+			}
+			
+			/* Responsive */
+			@media (max-width: 768px) {
+				.page-header h1 {
+					font-size: 2.5rem;
+				}
+				
+				.pros-cons {
+					grid-template-columns: 1fr;
+				}
+				
+				.widget-grid {
+					grid-template-columns: 1fr;
+				}
+				
+				nav ul {
+					flex-direction: column;
+					gap: 1rem;
+				}
+				
+				.header-content {
+					flex-direction: column;
+					gap: 1rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<div class="header-content">
+					<div class="logo-placeholder">
+						FD Construction Logo
+					</div>
+					<nav>
+						<ul>
+							<li><a href="/">Home</a></li>
+							<li><a href="/about">About</a></li>
+							<li><a href="/services">Services</a></li>
+							<li><a href="/market-trends" class="active">Market Trends</a></li>
+						</ul>
+					</nav>
+					<button class="contact-btn" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+						Contact Us
+					</button>
+				</div>
+			</div>
+		</header>
+
+		<main>
+			<section class="page-header">
+				<div class="container">
+					<h1>Construction Market Trends</h1>
+					<p>Stay informed about construction market data and trends that impact your projects</p>
+				</div>
+			</section>
+
+			<section class="market-data-section">
+				<div class="market-data-container">
+					<div class="tradingview-intro">
+						<h2>Construction Market Dashboard</h2>
+						<p>Real-time market data for construction materials, building supply companies, and interest rates</p>
+					</div>
+
+					<!-- Construction Market & Interest Rates -->
+					<div class="widget-section">
+						<h3 class="section-title">📊 Construction Market Overview</h3>
+						<div class="widget-container">
+							<iframe src="https://s.tradingview.com/embed-widget/symbol-overview/?symbols=NYSE:HD,NYSE:CAT,NYSE:DHI,NYSE:LEN,NYSE:VMC,FRED:FEDFUNDS,FRED:MORTGAGE30US,LBS1!,HG1!&chartOnly=false&width=100%25&height=550&colorTheme=light&isTransparent=false&autosize=true&showSymbolLogo=true&utm_source=fdconstruction.com&utm_medium=widget&utm_campaign=symbol-overview" 
+								width="100%" height="550" frameborder="0" allowtransparency="true" scrolling="no">
+							</iframe>
+						</div>
+					</div>
+
+					<!-- Building Supply Companies Market Quotes -->
+					<div class="widget-section">
+						<h3 class="section-title">🏗️ Building Supply Companies</h3>
+						<div class="widget-container">
+							<iframe src="https://s.tradingview.com/embed-widget/market-quotes/?symbols=NYSE:CRH,NYSE:VMC,NYSE:MLM,NYSE:JHX,NYSE:EXP,NYSE:KNF,NASDAQ:TGLS,NASDAQ:USLM,NASDAQ:MCEM,NASDAQ:SMID&colorTheme=light&isTransparent=false&showSymbolLogo=true&backgroundColor=%23FFFFFF&width=100%25&height=550&utm_source=fdconstruction.com&utm_medium=widget&utm_campaign=market-quotes" 
+								width="100%" height="550" frameborder="0" allowtransparency="true" scrolling="no">
+							</iframe>
+						</div>
+					</div>
+
+					<!-- Lumber Futures Chart -->
+					<div class="widget-section">
+						<h3 class="section-title">🪵 Lumber Futures</h3>
+						<div class="widget-container">
+							<iframe src="https://s.tradingview.com/embed-widget/advanced-chart/?symbol=LBS1!&width=100%25&height=500&interval=D&timezone=Etc%2FUTC&theme=light&style=1&withdateranges=true&range=3M&allow_symbol_change=true&save_image=false&calendar=false&utm_source=fdconstruction.com&utm_medium=widget&utm_campaign=chart" 
+								width="100%" height="500" frameborder="0" allowtransparency="true" scrolling="no">
+							</iframe>
+						</div>
+					</div>
+
+					<!-- Construction Sector Screener -->
+					<div class="widget-section">
+						<h3 class="section-title">🔍 Construction Sector Screener</h3>
+						<div class="widget-container">
+							<iframe src="https://s.tradingview.com/embed-widget/screener/?width=100%25&height=500&defaultColumn=overview&screener_type=stock_market&displayCurrency=USD&colorTheme=light&market=us&showToolbar=true&utm_source=fdconstruction.com&utm_medium=widget&utm_campaign=screener" 
+								width="100%" height="500" frameborder="0" allowtransparency="true" scrolling="no">
+							</iframe>
+						</div>
+					</div>
+
+					<!-- Market Insights -->
+					<div class="market-insights">
+						<h3 class="section-title">📈 Key Market Indicators</h3>
+						<div class="insights-grid">
+							<div class="insight-card">
+								<h4>🏠 Housing Market</h4>
+								<p>Monitor housing starts, permits, and existing home sales data that directly impact construction demand.</p>
+							</div>
+							<div class="insight-card">
+								<h4>💰 Interest Rates</h4>
+								<p>Federal funds rate and mortgage rates affect construction financing and project viability.</p>
+							</div>
+							<div class="insight-card">
+								<h4>🛠️ Material Costs</h4>
+								<p>Lumber, copper, and steel prices influence project costs and profit margins.</p>
+							</div>
+							<div class="insight-card">
+								<h4>🏗️ Construction Stocks</h4>
+								<p>Public companies like HD, CAT, and DHI reflect overall industry health and sentiment.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<section id="contact" class="contact">
+			<div class="container">
+				<div class="contact-content">
+					<h2>Need Market Analysis?</h2>
+					<p>Contact us to discuss how market trends might affect your construction project timeline and budget.</p>
+					<div class="contact-info">
+						<div class="contact-item">
+							<h3>Phone</h3>
+							<p>(208) 555-0123</p>
+						</div>
+						<div class="contact-item">
+							<h3>Email</h3>
+							<p>info@fdconstruction.com</p>
+						</div>
+						<div class="contact-item">
+							<h3>Location</h3>
+							<p>Sun Valley, Idaho</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<footer>
+			<div class="container">
+				<p>&copy; 2024 FD Construction & Maintenance. All rights reserved.</p>
+			</div>
+		</footer>
+		<script>
+			// Update TradingView widget themes based on system preference
+			function updateWidgetThemes() {
+				const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+				const theme = isDarkMode ? 'dark' : 'light';
+				
+				// Update iframe sources to use correct theme
+				const iframes = document.querySelectorAll('.widget-container iframe');
+				iframes.forEach((iframe) => {
+					const iframeElement = iframe as HTMLIFrameElement;
+					let src = iframeElement.src;
+					if (src.includes('colorTheme=')) {
+						src = src.replace(/colorTheme=[^&]*/, `colorTheme=${theme}`);
+					} else if (src.includes('theme=')) {
+						src = src.replace(/theme=[^&]*/, `theme=${theme}`);
+					}
+					iframeElement.src = src;
+				});
+			}
+			
+			// Update themes on page load
+			document.addEventListener('DOMContentLoaded', updateWidgetThemes);
+			
+			// Update themes when system preference changes
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateWidgetThemes);
+		</script>
+	</body>
+</html> 
