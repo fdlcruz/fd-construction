@@ -63,11 +63,11 @@ const bottomLinks = [
         href: '/404',
         isExternal: false,
       },
-      {
-        name: 'Styleguide',
-        href: '/styleguide',
-        isExternal: false,
-      },
+      // {
+      //   name: 'Styleguide',
+      //   href: '/styleguide',
+      //   isExternal: false,
+      // },
     ],
   },
 ];
@@ -82,10 +82,10 @@ const bottomLinks = [
     <div class="flex flex-col justify-between gap-12 sm:gap-16 lg:flex-row">
       <div class="flex max-w-sm flex-col items-start gap-6 sm:gap-8">
         <img
-          class="h-32 w-auto"
+          class="h-24 w-auto"
           width="260"
           height="160"
-          :src="$store.theme.isDark ? '/assets/FDlogowhite.png' : '/assets/FDlogoblack.png'"
+          :src="$store.theme.isDark ? '/assets/FD-icon-light.png' : '/assets/FD-icon-dark.png'"
           alt="Stone"
         />
         <p class="text-primary-950/70 dark:text-primary-200/70 text-base">
@@ -95,7 +95,7 @@ const bottomLinks = [
       </div>
 
       <!-- Bottom links -->
-      <div class="grid max-w-xl flex-1 grid-cols-1 gap-8 sm:grid-cols-3">
+      <!-- <div class="grid max-w-xl flex-1 grid-cols-1 gap-8 sm:grid-cols-3">
         {
           bottomLinks.map((group) => (
             <div class="flex flex-col gap-4">
@@ -128,7 +128,7 @@ const bottomLinks = [
             </div>
           ))
         }
-      </div>
+      </div> -->
     </div>
   </div>
 </footer>

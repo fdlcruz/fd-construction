@@ -39,10 +39,10 @@ const links = [
       >
         <span class="sr-only">Stone</span>
         <img
-          class="h-32 w-auto"
+          class="h-16 w-auto"
           width="260"
           height="160"
-          :src="$store.theme.isDark ? '/assets/FDlogowhite.png' : '/assets/FDlogoblack.png'"
+          :src="$store.theme.isDark ? '/assets/FD-logo-light.png' : '/assets/FD-logo-dark.png'"
           alt="Stone"
         />
       </a>
@@ -86,8 +86,8 @@ const links = [
         </svg>
       </button>
 
-      <!-- Toggle menu -->
-      <button
+      <!-- Toggle menu - COMMENTED OUT -->
+      <!-- <button
         type="button"
         class="text-primary-950 dark:text-primary-200 hover:bg-primary-500/10 dark:hover:bg-primary-400/10 ring-primary-950 inline-flex h-14 w-14 items-center justify-center rounded-full transition focus:outline-none focus-visible:ring-2"
         @click="open = !open"
@@ -121,12 +121,12 @@ const links = [
             d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z"
           ></path>
         </svg>
-      </button>
+      </button> -->
     </div>
   </div>
 
-  <!-- Menu content -->
-  <div
+  <!-- Menu content - COMMENTED OUT -->
+  <!-- <div
     class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8"
     id="website-menu"
     x-cloak
@@ -145,7 +145,6 @@ const links = [
         </p>
       </div>
 
-      <!-- Navigation -->
       <nav class="divide-primary-900/10 dark:divide-primary-300/10 flex flex-col gap-1 divide-y">
         {
           links.map((link) => (
@@ -173,5 +172,5 @@ const links = [
         }
       </nav>
     </div>
-  </div>
+  </div> -->
 </header>

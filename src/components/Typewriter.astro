@@ -1,0 +1,58 @@
+---
+export interface Props {
+  text: string;
+  speed?: number; // milliseconds per character
+  cursor?: string;
+  class?: string;
+}
+
+const { 
+  text, 
+  speed = 1000 / text.length, // default 1 second total
+  cursor = '_',
+  class: className = ''
+} = Astro.props;
+---
+
+<div 
+  class={className}
+  x-data={`{
+    text: ${JSON.stringify(text)},
+    displayText: '',
+    cursor: ${JSON.stringify(cursor)},
+    showCursor: true,
+    isTyping: true,
+    init() {
+      this.typeText();
+      this.blinkCursor();
+    },
+    typeText() {
+      let i = 0;
+      const timer = setInterval(() => {
+        if (i < this.text.length) {
+          this.displayText += this.text[i];
+          i++;
+        } else {
+          clearInterval(timer);
+          this.isTyping = false;
+          // Keep cursor blinking for 2-3 more blinks (500ms each = 1000-1500ms)
+          setTimeout(() => {
+            this.showCursor = false;
+            clearInterval(this.blinkTimer);
+          }, 1500);
+        }
+      }, ${speed});
+    },
+    blinkCursor() {
+      const blinkTimer = setInterval(() => {
+        this.showCursor = !this.showCursor;
+      }, 500);
+      
+      // Store timer reference for cleanup
+      this.blinkTimer = blinkTimer;
+    }
+  }`}
+>
+  <span x-text="displayText"></span>
+  <span x-show="showCursor" x-text="cursor" class="animate-pulse"></span>
+</div>

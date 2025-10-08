@@ -1,12 +1,12 @@
-# Stone: Astro Theme
+# FD Construction Website
 
-Stone is a free and open-source Astro theme specially designed for Business, Marketing, SaaS and Startup websites.
+FD Construction and Maintenance website built with Astro, featuring a modern design for construction and maintenance services.
 
 ## Key Features:
 
 - **Built with Tailwind CSS & Alpine.js**
-- **5+ Pages**
-- **15+ Sections**
+- **Single Page Application**
+- **Multiple Sections**
 - Clean & Modern Design
 - Fully Responsive
 - Dark & Light Mode
@@ -16,7 +16,6 @@ Stone is a free and open-source Astro theme specially designed for Business, Mar
 - **Prettier** Code Formatter
 - **Google Fonts**
 - **Remix Icons**
-- Free Updates
 
 ## Getting Started
 
@@ -87,9 +86,9 @@ Inside the project, you'll see the following folders and files:
 
 Ready to build and deploy your site? Follow the [official documentation](https://docs.astro.build/en/guides/deploy/).
 
-## Support
+## About FD Construction
 
-If you have any questions or suggestions do not hesitate to contact me.
+For over 20 years, FD Construction and Maintenance has been tirelessly serving the needs of Idaho residents. Build your next home with someone you can trust.
 
 ## License
 
